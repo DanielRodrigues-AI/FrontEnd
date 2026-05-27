@@ -45,10 +45,10 @@ export const criarFormularioMetricas = () => {
             </div>
         </div>
 
-        <div id="container-subseries-dinamicas" class="treino-subseries-grid escondido">
+<div id="container-subseries-dinamicas" class="treino-subseries-grid escondido">
             <div class="treino-especial-controles">
-                <button id="btn-adicionar-subserie" class="btn-adicionar-card">+ ADICIONAR SÉRIE</button>
                 <span id="contador-series-especiais" class="contador-txt">0 / 12 SÉRIES</span>
+                <button id="btn-adicionar-subserie" class="btn-adicionar-card">+ ADICIONAR SÉRIE</button>
             </div>
             <div id="lista-cards-subseries" class="treino-cards-wrapper"></div>
         </div>
