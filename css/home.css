@@ -1,0 +1,219 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #000000;
+  color: #e0e0e0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: #121212;
+  border-bottom: 1px solid #222222;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px;
+}
+
+nav button {
+  background-color: #1a1a1a;
+  border: 1px solid #262626;
+  color: #a6a6a6;
+  padding: 14px 18px;
+  font-size: 0.98rem;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  text-align: center;
+  flex: 1;
+}
+
+nav button:active {
+  transform: scale(0.95);
+  background-color: rgba(57, 218, 103, 0.1);
+}
+
+nav button.active {
+  color: #ffffff;
+  font-weight: 800;
+  background-color: #1a1a1a;
+  border: 1px solid #39da67;
+  box-shadow: 0 0 15px rgba(57, 218, 103, 0.35);
+}
+
+#app {
+  flex: 1;
+  padding: 20px;
+  width: 100%;
+}
+
+#app h2 {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 5px;
+}
+
+#app p {
+  color: #888888;
+  font-size: 0.95rem;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.card-treino {
+  background: #121212;
+  border: 1px solid #282828;
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.card-treino:focus-within,
+.card-treino.destaque {
+  border-color: #39da67;
+  box-shadow: 0 0 15px rgba(57, 218, 103, 0.15);
+}
+
+.card-treino h3 {
+  font-size: 1.15rem;
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+@media (min-width: 768px) {
+  body {
+    flex-direction: row;
+  }
+
+  header {
+    width: 260px;
+    min-height: 100vh;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    border-bottom: none;
+    border-right: 1px solid #222222;
+    padding: 30px 20px;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 0;
+  }
+
+  nav button {
+    width: 100%;
+    text-align: left;
+    padding: 14px 16px;
+  }
+
+  nav button:hover {
+    color: #39da67;
+  }
+
+  #app {
+    margin-left: 260px;
+    padding: 40px;
+    max-width: 1200px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+/* ==========================================================================
+   ESTILOS DO WIZARD DE TREINOS
+   ========================================================================== */
+.wizard-container {
+    background: #161616;
+    border: 1px solid #262626;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+.wizard-botoes {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+.btn-wizard {
+    background: #222;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.btn-wizard:hover {
+    border-color: #39da67;
+    background: #1a2e1f;
+}
+.btn-wizard-ativar {
+    background: #39da67;
+    color: #000;
+    font-weight: 800;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.btn-voltar {
+    background: transparent;
+    border: none;
+    color: #777;
+    cursor: pointer;
+    font-weight: 600;
+}
+.btn-voltar:hover { color: #fff; }
+.lista-exercicios-wizard {
+    text-align: left;
+    max-width: 300px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.checkbox-exercicio {
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+.btn-wizard-sucesso {
+    background: #39da67;
+    color: #000;
+    font-weight: 800;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-left: 10px;
+}

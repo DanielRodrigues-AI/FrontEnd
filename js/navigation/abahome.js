@@ -1,0 +1,20 @@
+// Agora é uma função que recebe o nome e cospe o HTML customizado
+export const renderHome = (nomeUsuario) => {
+    // Se por algum motivo o nome não vier, usamos "Atleta" como plano B
+    const nomeExibicao = nomeUsuario || "Atleta";
+
+    return `
+        <h2>Olá, ${nomeExibicao}! 💪</h2>
+        <p>Monitore sua evolução física hoje.</p>
+        <div class="dashboard-grid">
+            <div class="card-treino destaque">
+                <h3>Treino do Dia</h3>
+                <p>Status: <strong>Pendente</strong></p>
+            </div>
+            <div class="card-treino">
+                <h3>Frequência Semanal</h3>
+                <p><strong>3 / 5</strong> Dias Concluídos</p>
+            </div>
+        </div>
+    `;
+};

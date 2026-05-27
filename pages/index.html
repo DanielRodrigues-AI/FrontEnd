@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitLife Academy - Login & Cadastro</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+
+<body>
+
+    <main class="auth-container">
+        <div class="auth-card">
+
+            <div class="auth-header">
+                <h1 class="brand-title">FITLIFE<span>ACADEMY</span></h1>
+                <p class="brand-subtitle" id="auth-subtitle">Acesse sua área de treino</p>
+            </div>
+
+            <form id="form-login" class="auth-form">
+                <div class="input-group">
+                    <label for="login-email">E-mail</label>
+                    <input type="email" id="login-email" name="email" required placeholder="seu@email.com"
+                        maxlength="99">
+                </div>
+
+                <div class="input-group">
+                    <label for="login-senha">Senha</label>
+                    <input type="password" id="login-senha" name="senha" required placeholder="••••••••" minlength="6">
+                </div>
+
+                <button type="submit" class="btn-primary">ENTRAR NO TREINO</button>
+
+                <p class="auth-switch">
+                    Não tem uma conta? <a href="#" id="go-to-register">Cadastre-se aqui</a>
+                </p>
+            </form>
+
+            <form id="form-cadastro" class="auth-form hidden">
+                <div class="input-group">
+                    <label for="cad-nome">Nome Completo</label>
+                    <input type="text" id="cad-nome" name="nome" required placeholder="Ex: João Silva" maxlength="60">
+                </div>
+
+                <div class="input-group">
+                    <label for="cad-email">E-mail</label>
+                    <input type="email" id="cad-email" name="email" required placeholder="seu@email.com" maxlength="99">
+                </div>
+
+                <div class="input-group">
+                    <label for="cad-senha">Crie uma Senha</label>
+                    <input type="password" id="cad-senha" name="senha" required placeholder="Mínimo 6 caracteres"
+                        minlength="6">
+                </div>
+
+                <button type="submit" class="btn-primary">CRIAR MINHA CONTA</button>
+
+                <p class="auth-switch">
+                    Já possui cadastro? <a href="#" id="go-to-login">Fazer Login</a>
+                </p>
+            </form>
+
+        </div>
+    </main>
+
+    <footer class="auth-footer">
+        <p>&copy; 2026 NexaLogic. Todos os direitos reservados.</p>
+    </footer>
+    <div id="custom-toast" class="toast hidden">
+        <div class="toast-content">
+            <span class="toast-icon">✓</span>
+            <p id="toast-message">Cadastro realizado com sucesso!</p>
+        </div>
+    </div>
+    <script type="module" src="../js/index.js"></script>
+</body>
+
+</html>
