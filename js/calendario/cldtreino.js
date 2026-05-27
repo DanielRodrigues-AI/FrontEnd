@@ -93,8 +93,9 @@ const exibirDetalhesDoDia = (dataStr) => {
     }
 
     // 2. Filtra de forma inteligente usando a coluna 'tipo' do banco
-    const treinosSuperiores = treinosDoDia.filter(t => (t.tipo || 'superior').toLowerCase() === 'superior');
-    const treinosInferiores = treinosDoDia.filter(t => (t.tipo || '').toLowerCase() === 'inferior');
+// 2. Filtra de forma inteligente usando a coluna 'tipo' do banco (Tratando strings vazias ou nulas)
+    const treinosSuperiores = treinosDoDia.filter(t => String(t.tipo || '').toLowerCase() === 'superior');
+    const treinosInferiores = treinosDoDia.filter(t => String(t.tipo || '').toLowerCase() === 'inferior');
 
     // 3. Renderiza os cards na coluna de Superiores
     if (treinosSuperiores.length > 0) {

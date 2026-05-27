@@ -19,6 +19,7 @@ export const validarEEnviarTreino = (estado) => {
         usuario_id: 1, 
         exercicio: estado.exercicioSelecionado, 
         es_especial: estado.esEspecial ? 1 : 0,
+        tipo: estado.tipo,
         criado_em: campoData 
     };
 
