@@ -1,8 +1,6 @@
 import { API_URL } from './config.js';
 
-/**
- * Cliente HTTP isolado para requisições POST // POST = MANDAR
- */
+
 export const apiPost = async (endpoint, dados) => {
     try {
         const resposta = await fetch(`${API_URL}${endpoint}`, {
@@ -22,9 +20,7 @@ export const apiPost = async (endpoint, dados) => {
     }
 };
 
-/**
- * Cliente HTTP isolado para requisições GET // GET = PEDIR
- */
+
 export const apiGet = async (endpoint) => {
     try {
         const resposta = await fetch(`${API_URL}${endpoint}`, {

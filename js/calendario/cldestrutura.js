@@ -67,7 +67,6 @@ export const renderizarBotoesDias = (arrayDias, listaDatasTreinadas) => {
 };
 
 export const htmlItemTreino = (treino) => {
-    // Fallback de segurança caso a função receba uma string por engano
     if (typeof treino === 'string' || !treino) {
         return `
             <div class="cld-card-exercicio-item">
@@ -77,7 +76,6 @@ export const htmlItemTreino = (treino) => {
         `;
     }
 
-    // Se for um Treino Especial (Drop Set)
     if (treino.es_especial === 1) {
         const subseries = treino.subseries || [];
         
@@ -102,7 +100,6 @@ export const htmlItemTreino = (treino) => {
         `;
     }
 
-    // Layout original padrão para treinos normais (mantendo intacto)
     return `
         <div class="cld-card-exercicio-item">
             <h5>${treino.exercicio ? treino.exercicio.toUpperCase() : 'EXERCÍCIO'}</h5>

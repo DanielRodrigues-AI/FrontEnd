@@ -1,7 +1,6 @@
 import { configurarEscutas } from './treinoEventos.js';
 import { atualizarVisualEtapa } from './treinoVisual.js';
 
-// O estado do treino fica isolado e protegido aqui
 export let estadoTreino = { 
     etapa: 1, 
     tipo: '', 
@@ -28,7 +27,6 @@ export const resetarEstadoTreino = () => {
     estadoTreino.seriesEspeciais = [];
 };
 
-// Centraliza a atualização completa da tela
 export const renderizarEtapaAtual = () => {
     atualizarVisualEtapa(estadoTreino);
 };

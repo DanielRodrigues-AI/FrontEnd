@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
         toast.classList.add('active');
     }
 
-    // Alternância de Telas
     linkToRegister.addEventListener('click', (e) => {
         e.preventDefault();
         formLogin.classList.add('hidden');
@@ -35,16 +34,15 @@ document.addEventListener('DOMContentLoaded', () => {
         subtitle.textContent = 'Acesse sua área de treino';
     });
 
-    // Fluxo de Login
     formLogin.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         if (!formLogin.checkValidity()) {
-            dispararTremorCard(); // Função isolada cuidando do CSS
+            dispararTremorCard(); 
             return;
         }
 
-        alternarBotaoCarregando(formLogin, true); // Ativa animação
+        alternarBotaoCarregando(formLogin, true); 
 
         const dados = Object.fromEntries(new FormData(formLogin));
         const { ok, dados: resposta } = await apiPost('/login', dados);
@@ -56,11 +54,10 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => { window.location.href = './home.html'; }, 2000);
         } else {
             dispararToast(resposta.erro);
-            alternarBotaoCarregando(formLogin, false); // Desativa se der erro
+            alternarBotaoCarregando(formLogin, false); 
         }
     });
 
-    // Fluxo de Cadastro
     formCadastro.addEventListener('submit', async (e) => {
         e.preventDefault();
         

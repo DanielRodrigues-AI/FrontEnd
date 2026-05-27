@@ -1,6 +1,4 @@
-// Agora é uma função que recebe o nome e cospe o HTML customizado
 export const renderHome = (nomeUsuario) => {
-    // Se por algum motivo o nome não vier, usamos "Atleta" como plano B
     const nomeExibicao = nomeUsuario || "Atleta";
 
     return `

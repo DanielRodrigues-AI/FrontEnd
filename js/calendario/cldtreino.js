@@ -14,7 +14,6 @@ const mockBancoDeDados = {
 
 let dataAtual = new Date(2026, 4, 25); 
 
-// Variável global para guardar os treinos que vêm do MySQL
 let treinosSalvos = [];
 
 export const iniciarCalendarioLogica = async (containerPai) => {
@@ -43,12 +42,10 @@ const atualizarVisualCalendario = () => {
 
     const listaDias = obterDiasDoMes(ano, mes); 
 
-    // Extrai apenas as strings de data ('YYYY-MM-DD') dos treinos vindos do banco
     const datasComTreino = treinosSalvos.map(treino => {
         return treino.dataStr ? treino.dataStr.substring(0, 10) : '';
     });
 
-    // Passa as datas reais para o seu renderizarBotoesDias original pintar de verde
     $('cld-grid-render').innerHTML = renderizarBotoesDias(listaDias, datasComTreino);
 };
 
@@ -75,36 +72,30 @@ const configurarEventosCalendario = (containerPai) => {
     });
 };
 
-// Procure por essa função no seu cldtreino.js e ajuste o final dela:
 const exibirDetalhesDoDia = (dataStr) => {
-    const [ano, mes, dia] = dataStr.split('-'); //
-    $('cld-texto-dia-clicado').textContent = `FICHA DE TREINO DO DIA: ${dia}/${mes}/${ano}`; //
+    const [ano, mes, dia] = dataStr.split('-'); 
+    $('cld-texto-dia-clicado').textContent = `FICHA DE TREINO DO DIA: ${dia}/${mes}/${ano}`; 
 
-    const listaSuperior = $('cld-lista-exercicios-superior'); //
-    const listaInferior = $('cld-lista-exercicios-inferior'); //
+    const listaSuperior = $('cld-lista-exercicios-superior'); 
+    const listaInferior = $('cld-lista-exercicios-inferior'); 
 
-    // 1. Filtra todos os treinos salvos que pertencem a este dia específico
-    const treinosDoDia = treinosSalvos.filter(treino => treino.dataStr === dataStr); //
+    const treinosDoDia = treinosSalvos.filter(treino => treino.dataStr === dataStr); 
 
-    if (treinosDoDia.length === 0) { //
-        listaSuperior.innerHTML = `<p class="cld-placeholder-texto">Nenhum exercício para este dia.</p>`; //
-        listaInferior.innerHTML = `<p class="cld-placeholder-texto">Nenhum exercício para este dia.</p>`; //
-        return; //
+    if (treinosDoDia.length === 0) { 
+        listaSuperior.innerHTML = `<p class="cld-placeholder-texto">Nenhum exercício para este dia.</p>`; 
+        listaInferior.innerHTML = `<p class="cld-placeholder-texto">Nenhum exercício para este dia.</p>`; 
+        return; 
     }
 
-    // 2. Filtra de forma inteligente usando a coluna 'tipo' do banco
-// 2. Filtra de forma inteligente usando a coluna 'tipo' do banco (Tratando strings vazias ou nulas)
     const treinosSuperiores = treinosDoDia.filter(t => String(t.tipo || '').toLowerCase() === 'superior');
     const treinosInferiores = treinosDoDia.filter(t => String(t.tipo || '').toLowerCase() === 'inferior');
 
-    // 3. Renderiza os cards na coluna de Superiores
     if (treinosSuperiores.length > 0) {
         listaSuperior.innerHTML = treinosSuperiores.map(e => htmlItemTreino(e)).join('');
     } else {
         listaSuperior.innerHTML = `<p class="cld-placeholder-texto">Nenhum exercício registrado.</p>`;
     }
 
-    // 4. Renderiza os cards na coluna de Inferiores
     if (treinosInferiores.length > 0) {
         listaInferior.innerHTML = treinosInferiores.map(e => htmlItemTreino(e)).join('');
     } else {

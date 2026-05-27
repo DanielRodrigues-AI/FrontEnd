@@ -1,4 +1,3 @@
-// Fabrica os botões da Grid 2x2 baseados numa lista de opções
 export const criarBotoesGrid = (listaOpcoes, classeEspecial = '') => {
     let htmlBotoes = '';
 
@@ -16,7 +15,6 @@ ${listaOpcoes[i].toUpperCase()}
     return htmlBotoes;
 };
 
-// Fabrica a seção de inputs para Séries, Repetições e Carga + Campo de Data abaixo
 export const criarFormularioMetricas = () => {
     return `
         <section class="treino-secao-especial-container">
@@ -63,7 +61,6 @@ export const criarFormularioMetricas = () => {
         <button id="btn-treino-finalizar" class="desabilitado" disabled>Finalizar Treino</button>
     `;
 };
-// Fabrica o bloco de série especial com Repetição e Carga lado a lado
 export const criarCardSubSerie = (numeroDaSerie) => {
     return `
 <div class="card-subserie-item" data-index="${numeroDaSerie}">

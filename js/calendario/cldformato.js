@@ -10,7 +10,6 @@ export const obterDiasDoMes = (ano, mes) => {
 
     const dias = [];
 
-    // 1. Dias do mês anterior para preencher a primeira semana
     for (let i = primeiroDiaSemana - 1; i >= 0; i--) {
         dias.push({
             numero: totalDiasMesAnterior - i,
@@ -19,7 +18,6 @@ export const obterDiasDoMes = (ano, mes) => {
         });
     }
 
-    // 2. Dias do mês atual (Garantindo que roda até o fim do mês)
     for (let i = 1; i <= totalDiasMes; i++) {
         dias.push({
             numero: i,
@@ -28,7 +26,6 @@ export const obterDiasDoMes = (ano, mes) => {
         });
     }
 
-    // 3. Dias do próximo mês para fechar o grid (múltiplo de 7)
     const totalCelulas = Math.ceil(dias.length / 7) * 7;
     const faltam = totalCelulas - dias.length;
     for (let i = 1; i <= faltam; i++) {

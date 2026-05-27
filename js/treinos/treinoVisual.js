@@ -18,7 +18,6 @@ const alternarModosTreinoInterface = (estado) => {
     const areaMetricas = $('area-metricas-exercicio');
     if (!areaMetricas) return;
 
-    // Se a estrutura ainda não foi desenhada nesta etapa, monta ela por inteiro
     if (!areaMetricas.querySelector('#bloco-metricas-normais')) {
         areaMetricas.innerHTML = criarFormularioMetricas();
         areaMetricas.style.display = 'block';
@@ -39,7 +38,6 @@ const chkEspecial = $('chk-ativar-especial');
             painelDinamicoDrop.classList.add('escondido');
         }
     }
-    // Mantém a data de hoje preenchida por padrão se o campo nascer vazio
     const campoData = $('input-data-treino');
     if (campoData && !campoData.value) {
         campoData.value = new Date().toISOString().split('T')[0];
