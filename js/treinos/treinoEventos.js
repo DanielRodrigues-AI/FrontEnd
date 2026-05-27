@@ -28,12 +28,14 @@ containerPai.addEventListener('click', (e) => {
             validarEEnviarTreino(estadoTreino);
         }
     });
-    containerPai.addEventListener('change', (e) => {
+containerPai.addEventListener('change', (e) => {
         if (e.target.id === 'chk-ativar-especial') {
             estadoTreino.esEspecial = e.target.checked;
             
-            if (estadoTreino.esEspecial && estadoTreino.seriesEspeciais.length === 0) {
-                estadoTreino.seriesEspeciais.push({ reps: '', carga: '' });
+            if (estadoTreino.esEspecial) {
+                estadoTreino.seriesEspeciais = [{ reps: '', carga: '' }];
+            } else {
+                estadoTreino.seriesEspeciais = [];
             }
             
             renderizarEtapaAtual();

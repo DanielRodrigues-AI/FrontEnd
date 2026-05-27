@@ -30,9 +30,11 @@ const chkEspecial = $('chk-ativar-especial');
     if (chkEspecial && blocoNormal && painelDinamicoDrop) {
         chkEspecial.checked = estado.esEspecial;
 
-        if (estado.esEspecial) {
-            blocoNormal.classList.add('escondido'); // Some com o bloco de métricas normais de vez!
-            painelDinamicoDrop.classList.remove('escondido'); // Abre a gaveta do Drop Set
+if (estado.esEspecial) {
+            blocoNormal.classList.add('escondido');
+            painelDinamicoDrop.classList.remove('escondido');
+            // Desenha imediatamente a primeira série na tela assim que o container aparece
+            redesenharLayoutDropSet(estado.seriesEspeciais);
         } else {
             blocoNormal.classList.remove('escondido');
             painelDinamicoDrop.classList.add('escondido');
