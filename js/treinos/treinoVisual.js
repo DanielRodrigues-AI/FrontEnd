@@ -46,6 +46,7 @@ if (estado.esEspecial) {
     }
     ajustarBotaoFinalizar(estado);
 };
+
 const ajustarBotaoFinalizar = (estado) => {
     const btnFinalizar = $('btn-treino-finalizar');
     if (!btnFinalizar) return;
@@ -83,8 +84,19 @@ const pintarGridSlideAtivo = (estado) => {
 export const redesenharLayoutDropSet = (seriesEspeciais) => {
     const wrapper = $('lista-cards-subseries');
     const contador = $('contador-series-especiais');
+    const btnAdicionar = $('btn-adicionar-subserie'); 
+    
     if (!wrapper || !contador) return;
 
     wrapper.innerHTML = seriesEspeciais.map((_, idx) => criarCardSubSerie(idx + 1)).join('');
     contador.textContent = `${seriesEspeciais.length} / 12 SÉRIES`;
+    if (btnAdicionar) {
+        if (seriesEspeciais.length == 12) {
+            btnAdicionar.setAttribute('disabled', 'true');
+            btnAdicionar.classList.add('btn-bloqueado-limite');
+        } else {
+            btnAdicionar.removeAttribute('disabled');
+            btnAdicionar.classList.remove('btn-bloqueado-limite');
+        }
+    }
 };
