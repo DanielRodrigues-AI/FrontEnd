@@ -43,6 +43,9 @@ export const criarFormularioMetricas = () => {
                 <label for="input-carga">CARGA (KG)</label>
                 <input type="number" id="input-carga" placeholder="Ex: 60" min="0">
             </div>
+<div class="treino-secao-metrica-mensagemBonita">
+                <p>BOM TREINO! FOCO NO PROCESSO 💪</p>
+            </div>
         </div>
 
 <div id="container-subseries-dinamicas" class="treino-subseries-grid escondido">

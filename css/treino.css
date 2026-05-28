@@ -112,16 +112,22 @@
     width: 100%;
     display: block;
 }
-.treino-secao-metricas {
+
+
+/* Centraliza e joga a mensagem para baixo dos 3 inputs */
+.treino-secao-metrica-mensagemBonita {
     width: 100%;
-    display: flex;
-    gap: 12px;
-    padding: 15px;
-    margin-bottom: 1.5rem;
-    box-sizing: border-box;
-    background: #161616;
-    border: 1px solid #222;
-    border-radius: 10px;
+    text-align: center;
+    margin-top: auto; /* Empurra o texto para colar na base do bloco */
+    padding-bottom: 5px;
+}
+
+.treino-secao-metrica-mensagemBonita p {
+    color: #39da67; /* Cor verde padrão */
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.06rem;
+    margin: 0;
 }
 .grupo-input-metrica {
     flex: 1;
@@ -171,7 +177,7 @@
     box-sizing: border-box;
     background: #161616;
     border: 1px solid #222;
-    border-radius: 10px;
+    border-radius: 10px 10px 0 0; 
     margin-bottom: 1.5rem;
 }
 .treino-especial-header {
@@ -240,16 +246,33 @@ input:checked + .switch-slider::before {
 /* ==========================================================================
    SUBSÉRIES / CARDS DINÂMICOS
    ========================================================================== */
-.treino-subseries-grid {
+.treino-secao-metricas {
     width: 100%;
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 12px;
+    padding: 15px;
+    margin-bottom: 1.5rem;
     box-sizing: border-box;
     background: #161616;
     border: 1px solid #222;
     border-radius: 10px;
-    padding: 15px;
-    margin-top: 0.5rem;
+    min-height: 151px; 
+}
+   .treino-subseries-grid {
+    width: 100%;
+    box-sizing: border-box;
+    background: #161616;
+    margin-top: -1.5rem; 
     margin-bottom: 1.5rem;
-    min-height: 90px;
+    padding: 15px 15px 19px 15px;
+    border: 1px solid #222;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    min-height: 151px;
+}
+#bloco-metricas-normais.escondido + .treino-secao-especial-container {
+    border-radius: 10px;
 }
 .treino-especial-controles {
     display: flex;
